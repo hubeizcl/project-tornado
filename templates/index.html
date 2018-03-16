@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,init-scale=1"/>
-    <title>Learning Python</title>
-</head>
-<script src="/statics/js/jquery.js"></script>
-<script src="{{static_url('js/scscript.js')}}}"></script>
-<body>
-<h2>Login</h2>
+{% extends "base.html"%}
+{% block header%}
+<h2>登录界面</h2>
+<p>用户名是：{{user}}}登录</p>
+{% end %}
+{% block body%}
 <form method="post">
+    {%raw xsrf_form_html%}
     <p>
         <span>Username:</span>
         <input type="text" id="username"/>
@@ -22,5 +18,4 @@
         <input type="button" value="Login" id="login"/>
     </p>
 </form>
-</body>
-</html>
+{% end%}

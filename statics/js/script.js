@@ -1,14 +1,20 @@
+function getCookie(name) {
+    var x = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+    return x ? x[1] : undefined;
+}
+
 $(document).ready(function () {
     $("login").click(function () {
         var user = $("#username").val();
         var password = $("#password").val();
-        var pd = {"username": user, "password": password};
+        var pd = {"username": user, "password": password, "_xsrf": getCookie("_xsrf")};
         $.ajax({
             type: "post",
             url: "/",
             data: pd,
+            cache: false,
             success: function (data) {
-                alert(data)
+                window.location.href = "/user?user=" + data
             },
             error: function () {
                 alert("error")

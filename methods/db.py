@@ -1,12 +1,12 @@
 # coding:utf-8
-import pymysql.cursors
+import psycopg2
 
-conn = pymysql.connect(
-    host='localhost',
-    port=3306,
-    user='root',
-    passwd='988728',
-    db='python',
+conn = psycopg2.connect(
+    host='192.168.50.130',
+    port=5432,
+    user='postgres',
+    passwd='postgres',
+    dbname='hdsc_db',
     charset='utf8'
 )
 
